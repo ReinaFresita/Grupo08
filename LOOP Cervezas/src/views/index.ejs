@@ -1,0 +1,64 @@
+<%- include("partials/head", {title: 'LOOP - Cervezas Artesanales'}) %>
+
+<body>
+    <%- include("partials/header") %>
+    <main>
+      <h1 class="main-titulo">¡BIENVENIDOS A LOOP!</h1>
+
+      <div class="container-cervezas">
+        
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/RUBIA-lata.png',
+            titulo: 'LOOP Lata Rubia',
+            precio: '$240',
+          }
+        )%>
+
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/NEGRA-lata.png',
+            titulo: 'LOOP Lata Negra',
+            precio: '$270',
+          }
+        )%>
+
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/ROJA-lata.png',
+            titulo: 'LOOP Lata Roja',
+            precio: '$240',
+          }
+        )%>
+
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/IPA-lata.png',
+            titulo: 'LOOP Lata IPA',
+            precio: '$240',
+          }
+        )%>
+
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/IPA-botella.png',
+            titulo: 'LOOP Botella Rubia',
+            precio: '$340',
+          }
+        )%>
+
+        <%- include("partials/productCerveza",
+          {
+            imagen:'/images/RUBIA-botella.png',
+            titulo: 'LOOP Botella IPA',
+            precio: '$340',
+          }
+        )%>
+
+      </div>
+    </main>
+
+    <%- include("partials/footer") %>
+    
+  </body>
+</html>

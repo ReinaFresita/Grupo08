@@ -1,0 +1,35 @@
+<%- include("../partials/head", {title: 'LOOP - Crear'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+
+    <main>
+        <h1 class="main-titulo">CREAR PRODUCTO</h1>
+
+        <div style="position:absolute;padding:10px 30px;margin:20px">
+            <a href="/products/" style="background-color: white;font-size: 1.3em;font-weight: bold; color: black; text-decoration: none;padding: 5px;">
+              <i class="fas fa-angle-left"></i> VOLVER
+            </a>
+        </div>
+
+        <form action="/products/" method="post" class="formulario" enctype="application/x-www-form-urlencoded">
+            <label>NOMBRE:</label>
+            <input type="text" name="name" placeholder="Nombre del producto" required>
+            <br>
+            <label>PRECIO:</label>
+            <input type="number"name="price" placeholder="Precio del producto" required>
+            <br>
+            <label>DESCRIPCION:</label>
+            <input type="text"name="description" placeholder="Descripcion del producto" required>
+            <br>
+            <label>IMAGEN:</label>
+            <input type="file"name="image" placeholder="Imagen del producto" required>
+            <br>
+            <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Crear</button>
+        </form>
+    </main>
+
+    <%- include("../partials/footer") %>
+
+</body>
+</html>

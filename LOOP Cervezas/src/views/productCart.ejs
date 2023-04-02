@@ -1,0 +1,45 @@
+<%- include("partials/head", {title: 'LOOP - Carrito'}) %>
+
+<body>
+  <%- include("partials/header") %>
+    <main>
+      <span class="product-carrito">
+        <div>
+          <img class="img-carrito" src="/images/RUBIA-lata.png" width="100%" alt="lata"/>
+        </div>
+        <div class="product-box">
+          <h3>LOOP Lata Rubia</h3>
+          <p>$220,00</p>
+        </div>
+      </span>
+
+      <hr>
+
+      <span class="product-carrito">
+        <div>
+          <img class="img-carrito" src="/images/IPA-lata.png" width="100%" alt="lata"/>
+        </div>
+        <div class="product-box">
+          <h3>LOOP Lata IPA</h3>
+          <p>$220,00</p>
+        </div>
+      </span>
+
+      <hr>
+      
+      <span class="product-carrito">
+        <p>Subtotal: $440,00</p>
+      </span>
+      <span class="product-carrito">
+        <p>Medios de envio</p>
+        <div>
+          <input type="tel" name="cp" placeholder="Código postal" />
+          <button type="submit">Calcular</button>
+        </div>
+      </span>
+    </main>
+
+    <%- include("partials/footer") %>
+
+  </body>
+</html>

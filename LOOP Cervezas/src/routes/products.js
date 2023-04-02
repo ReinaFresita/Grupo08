@@ -1,0 +1,25 @@
+const express = require('express')
+const router = express.Router();
+const productsController = require("../controllers/productsController");
+const upload = require('../middlewares/multer')
+
+router.use(express.urlencoded({ extended: true }));
+
+//  GET ALL PRODUCTS 
+router.get("/", productsController.index);
+
+//  CREATE ONE PRODUCT 
+router.get("/create", productsController.create);
+router.post("/", upload.single("image"), productsController.store);
+
+//  GET ONE PRODUCT 
+router.get("/:id", productsController.detail);
+
+//  EDIT ONE PRODUCT 
+router.get("/:id/edit", productsController.edit);
+router.put("/:id", productsController.update);
+
+//  DELETE ONE PRODUCT
+router.delete("/:id/delete", productsController.destroy);
+
+module.exports = router;

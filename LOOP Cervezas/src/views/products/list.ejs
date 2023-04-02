@@ -1,0 +1,53 @@
+<%- include("../partials/head", {title: 'LOOP - Lista de Productos'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+
+    <main>
+        <h1 class="main-titulo">LISTA DE PRODUCTOS</h1>
+
+        <div style="padding: 0 30px; display:flex;">
+            <a href="/products/create">
+                <h3 style="color: white;border: 1px solid white;border-radius: 5px;width: 200px;text-align: center;">
+                    + CREAR PRODUCTO
+                </h3>
+            </a>
+        </div>
+
+        <div style="display: flex;flex-wrap: wrap;">
+            <% products.forEach(product => { %>
+                <div class="product-box" style="margin:30px;">
+                    <p><%= product.id %></p>
+                    <h2><%= product.name %></h2>
+                    <img src="<%= product.image %>" width="200px" alt="">
+                    <p>$<%= product.price %></p>
+                    <p><%= product.description %></p>
+
+                    <div>
+                        <a href="/products/<%= product.id %>">
+                            <i class="fas fa-eye"></i>VER
+                        </a>
+                        <a href="/products/<%= product.id %>/edit">
+                            <i class="fas fa-pen"></i>EDITAR
+                        </a>
+
+                        <form action="/products/<%= product.id %>/delete/?_method=delete" method="post" >
+                            <input type="hidden" name="_method" value="DELETE">
+                            <i class="fas fa-trash"></i>
+                            <button type="submit" style="background: none;border: none;cursor: pointer;">
+                                BORRAR
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+                
+    </main>
+
+    
+
+    <%- include("../partials/footer") %>
+
+</body>
+</html>

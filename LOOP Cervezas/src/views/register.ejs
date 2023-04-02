@@ -1,0 +1,24 @@
+<%- include("partials/head", {title: 'LOOP - Registrarse'}) %>
+
+<body>
+    <%- include("partials/header") %>
+    <main>
+        <form action="" class="formulario">
+            <h1 style="text-align: center;margin-top: 20px;">REGISTRARSE<i class="fas fa-beer"></i></h1>
+            <input type="text" class="input-form" placeholder="Nombre de usuario">
+            <input type="email" class="input-form" placeholder="Escribe tu email">
+            <input type="password" class="input-form" placeholder="Escribe tu contraseña">
+            <input type="password" class="input-form" placeholder="Escribe de nuevo tu contraseña">
+            <div class="checkbox">
+                <input type="checkbox">
+                <p>Recuérdame</p>
+            </div>
+            <input type="submit" value="Registrarse" class=" form-enviar">
+            <a href="/login">¿Ya tiene una cuenta? Inicie sesión!</a>
+        </form>
+    </main>
+
+    <%- include("partials/footer") %>
+    
+</body>
+</html>
