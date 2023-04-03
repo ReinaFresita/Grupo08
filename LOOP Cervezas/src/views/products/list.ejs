@@ -16,27 +16,33 @@
 
         <div style="display: flex;flex-wrap: wrap;">
             <% products.forEach(product => { %>
-                <div class="product-box" style="margin:30px;">
-                    <p><%= product.id %></p>
+                <div class="product-box" style="margin:20px;">
+                    <!-- <p><%= product.id %></p> -->
                     <h2><%= product.name %></h2>
                     <img src="<%= product.image %>" width="200px" alt="">
                     <p>$<%= product.price %></p>
-                    <p><%= product.description %></p>
+                    <p><%= product.description.toString().substring(0,40) %></p>
 
-                    <div>
+                    <div class="list-container-products">
                         <a href="/products/<%= product.id %>">
-                            <i class="fas fa-eye"></i>VER
+                            <div>
+                                <i class="fas fa-eye"></i>VER
+                            </div>
                         </a>
                         <a href="/products/<%= product.id %>/edit">
-                            <i class="fas fa-pen"></i>EDITAR
+                            <div>
+                                <i class="fas fa-pen"></i>EDITAR
+                            </div>
                         </a>
 
                         <form action="/products/<%= product.id %>/delete/?_method=delete" method="post" >
                             <input type="hidden" name="_method" value="DELETE">
-                            <i class="fas fa-trash"></i>
-                            <button type="submit" style="background: none;border: none;cursor: pointer;">
-                                BORRAR
-                            </button>
+                                <button type="submit" style="font-size:1em;background: none;border: none;cursor: pointer;">
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                        BORRAR
+                                    </div>
+                                </button>
                         </form>
                     </div>
                 </div>

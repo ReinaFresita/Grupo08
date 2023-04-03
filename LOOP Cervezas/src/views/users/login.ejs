@@ -1,0 +1,25 @@
+<%- include("../partials/head", {title: 'LOOP - Iniciar Sesión'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+    <!-- <main> -->
+        <form action="/users/login" method="post" class="formulario">
+            <h1 style="text-align: center;margin-top: 20px;">INICIAR SESIÓN<i class="fas fa-beer"></i></h1>
+            <input type="email" name="email" class="input-form" placeholder="Escribe tu email">
+            <% if (locals.errors && errors.email) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.email.msg %></p>
+            <% } %>
+            <input type="password" name="password" class="input-form" placeholder="Escribe tu contraseña">
+            <!-- <div class="checkbox">
+                <input type="checkbox">
+                <p>Recuérdame</p>
+            </div> -->
+            <input type="submit" value="Iniciar sesión" class=" form-enviar">
+            <a href="/users/register">¿No tiene una cuenta? <u>¡Hagase una!</u></a>
+        </form>
+    <!-- </main> -->
+
+    <%- include("../partials/footer") %>
+
+</body>
+</html>

@@ -3,7 +3,35 @@
 <body>
   <%- include("partials/header") %>
     <main>
-      <span class="product-carrito">
+
+      <h1 class="main-titulo">CARRITO</h1>
+
+      <div class="product-carrito">
+        <span class="head">
+          <p>#</p>
+          <p>Producto</p>
+          <p>Precio</p>
+          <p>Cantidad</p>
+          <p>Subtotal</p>
+        </span>
+        
+        <hr style="margin-top:10px;">
+
+        <span class="body">
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </span>
+
+        <span>
+          <h2>TOTAL: $0</h2>
+          <h2>COMPRAR</h2>
+        </span>
+      </div>
+
+      <!-- <span >
         <div>
           <img class="img-carrito" src="/images/RUBIA-lata.png" width="100%" alt="lata"/>
         </div>
@@ -36,7 +64,7 @@
           <input type="tel" name="cp" placeholder="Código postal" />
           <button type="submit">Calcular</button>
         </div>
-      </span>
+      </span> -->
     </main>
 
     <%- include("partials/footer") %>

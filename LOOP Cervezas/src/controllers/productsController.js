@@ -1,82 +1,84 @@
-const products = require("../data/products");
-const path = require('path')
-const fs = require('fs')
+const db = require("../../database/models")
+
+// const products = require("../data/products");
+// const path = require('path')
+// const fs = require('fs')
 
 const controller = {
-    // Root - Show all products
-    index: (req, res) => {
-        res.render("products/list", { products: products.findAll() });
+    index: async (req, res) => {
+        res.render("products/list", { products: await db.Product.findAll() })
     },
 
-    // Detail - Detail from one product
-    detail: (req, res) => {
-        const product = products.findAll().find((producto) => producto.id == req.params.id);
-        res.render("products/detail", { product });
-    },
-
-    // Create - Form to create
-    create: (req, res) => {
+    createPage: (req, res) => {
         res.render("products/create-form");
     },
 
-    // Create -  Method to store
-    store: (req, res) => {
+    create: (req, res) => {
+        db.Product.create({
+            name:req.body.name,
+            price:req.body.price,
+            description:req.body.description,
+            image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
+        })
+        
+        res.redirect("/products")
+    },
+
+    detail: async (req, res) => {
+        const product = await db.Product.findOne(
+            { where: { id: req.params.id }}
+        )
+        res.render("products/detail", { product });
+    },
+
+    edit: async (req, res) => {
+        const product = await db.Product.findOne(
+            { where: { id: req.params.id }}
+        )
+        res.render("products/edit-form", { productToEdit:product });
+    },
+
+    update: async (req, res) => {
+        await db.Product.update({
+            name:req.body.name,
+            price:req.body.price,
+            description:req.body.description,
+            image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
+        },
+        { where: { id:req.params.id }});
+
+        res.redirect("/products");
+    },
+
+    destroy: async (req, res) => {
+        await db.Product.destroy({ where: { id:req.params.id }});
+        
+        /* let product = products.findById(req.params.id);
+        
+        let imagePath = path.join(
+            __dirname, '../../public/', product.image
+        );
+
+        fs.unlink(imagePath)
+
+        products.delete(req.params.id); */
+        res.redirect("/products");
+    },
+
+    
+
+    /* store: (req, res) => {
         const product = {
             id: Date.now(),
             name: req.body.name,
             price: Number(req.body.price),
             description: req.body.description,
-            image:req.file ? req.file.filename:"default-image.png",
-            /*
-                image: req.file
-                ? "/images/" + req.file.image
-                : "/images/default-img.png",
-            */
+            image: req.file ? "/images/products/" + req.file.filename : "default-image.png",
           };
       
           products.saveProduct(product);
           res.redirect("/products");
-    },
-
-    // Update - Form to edit
-    edit: (req, res) => {
-        let productToEdit = products.findById(req.params.id);
-        res.render("products/edit-form", { productToEdit:productToEdit });
-    },
-    // Update - Method to update
-    update: (req, res) => {
-        const id = req.params.id;
-        const { name, price, description, image } = req.body;
-        const updatedProduct = {
-            id,
-            name,
-            price,
-            description,
-            image,
-        };
-
-        products.update(updatedProduct);
-
-        res.redirect("/products");
-    },
-
-    // Delete - Delete one product from DB
-    destroy: (req, res) => {
-        let product = products.findById(req.params.id);
-        
-        let imagePath = path.join(
-            __dirname,
-            "../public/images/products/" + product.image
-        );
-
-        products.delete(req.params.id);
-
-        if (fs.existsSync(imagePath)) {
-            fs.unlinkSync(imagePath);
-        }
-
-        res.redirect("/products");
-    },
+    }, */
 };
 
 module.exports = controller;

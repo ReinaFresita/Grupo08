@@ -1,4 +1,4 @@
-<%- include("../partials/head", {title: 'LOOP - Editar'}) %>
+<%- include("../partials/head", {title: 'LOOP - Editar Producto'}) %>
 
 <body>
     <%- include("../partials/header") %>
@@ -12,25 +12,26 @@
             </a>
         </div>
 
+        <!-- enctype="application/x-www-form-urlencoded" -->
         <form action="/products/<%= productToEdit.id %>?_method=PUT" method="post" class="formulario" enctype="application/x-www-form-urlencoded">
 
             <input type="hidden" name="_method" value="PUT">
             
             <label>NOMBRE:</label>
-            <input type="text" name="name" placeholder="" value="<%= productToEdit.name %>" required>
+            <input type="text" name="name" placeholder="Nombre del producto" value="<%= productToEdit.name %>" required>
             <br>
             <label>PRECIO:</label>
-            <input type="number" name="price" placeholder="" value="<%= productToEdit.price %>">
+            <input type="number" name="price" placeholder="Precio del producto" value="<%= productToEdit.price %>">
             <br>
             <label>DESCRIPCION:</label>
-            <input type="text" name="description" placeholder="" value="<%= productToEdit.description %>">
+            <input type="text" name="description" placeholder="Descripcion del producto" value="<%= productToEdit.description %>">
             <br>
             <label>IMAGEN:</label>
             <br>
             <img src="<%= productToEdit.image %>" width="300px" alt="">
             <br>
-            <label for="">CAMBIAR IMAGEN:</label>
-            <input type="file" name="image">
+            <label>CAMBIAR IMAGEN:</label>
+            <input type="file" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg">
             <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Editar</button>
         </form>
     </main>

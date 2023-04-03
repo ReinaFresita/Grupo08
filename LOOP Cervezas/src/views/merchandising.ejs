@@ -1,0 +1,42 @@
+<%- include("partials/head", {title: 'LOOP - Merchandising'}) %>
+
+<body>
+    <%- include("partials/header") %>
+
+    <main>
+        <h1 class="main-titulo">MERCHANDISING</h1>
+
+        <section>
+            <div class="container-cervezas">
+            
+            <% products.forEach(product => { %>
+            <span>
+                <div style="display: flex; justify-content: center;">
+                    <img src="<%= product.image %>" width="100%" alt="">
+                </div>
+
+                <div>
+                    <h2 class="cervezaTitulo"><%= product.name %></h2>
+                    <hr>
+                    <div class="box-precioYEnvio">
+                      <h3 class="cervezaPrecio">$<%= product.price %></h3>
+                      <p class="cervezaEnvio">ENVIO GRATIS</p>
+                    </div>
+                    <hr>
+                    <div class="cervezaVerMas">
+                    <a href="">+ AGREGAR</a>
+                    <!-- <a href="<%= product.id %>/productDetail">
+                      VER MÁS
+                      <i class="fas fa-angle-right"></i>
+                    </a> -->
+                    </div>
+                </div>
+            </span>
+            <% }) %>
+        </div>
+        </section>
+    </main>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

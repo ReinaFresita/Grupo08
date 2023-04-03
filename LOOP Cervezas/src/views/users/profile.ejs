@@ -1,0 +1,55 @@
+<%- include("../partials/head", {title: 'LOOP - Tu Perfil'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+    <section>
+        <div class="profile">
+            <div class="header">
+                <img src="<%= user.image %>" width="100px" height="100px" style="border-radius: 50%;object-fit: cover;" alt="">
+                <h1>Bienvenido, <%= user.firstName %></h1>
+            </div>
+
+            <hr style="margin: 10px;">
+
+                <a href="/productCart" style="color:#262626; text-decoration: none;">
+                    <div style="display: flex; align-items: center; gap: 0.5em;">
+                        <h2>Ver carrito</h2><i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+                
+            <hr style="margin: 10px;">
+
+            <h2>Tus datos:</h2>
+            <p><strong>Nombre:</strong> <%= user.firstName %></p>
+            <p><strong>Apellido:</strong> <%= user.lastName  %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+
+            <hr style="margin: 10px;">
+
+            <div style="display: flex; justify-content: space-around; padding: 10px;">
+                <a href="/users/logout">
+                    <div style="display:flex;">
+                        <span><i class="fas fa-sign-out-alt"></i></span>
+                        <p>Cerrar Sesión</p>
+                    </div>
+                </a>
+                
+                <form action="/users/<%= user.id %>/delete/?_method=delete" method="post">
+                    <button type="submit" style="font-size:1em;background: none;border: none;cursor: pointer;">
+                        <div style="display:flex;">
+                            <span><i class="fas fa-trash-alt"></i></span>
+                            <p>Eliminar cuenta</p>
+                        </div>
+                    </button>
+                </form>
+            </div>
+
+            <hr style="margin: 10px;">
+            
+        </div>
+    </section>
+
+    <%- include("../partials/footer") %>
+
+</body>
+</html>

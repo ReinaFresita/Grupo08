@@ -7,35 +7,33 @@
   "image": "favicon.png"
  },
  {
-  "id": 2,
-  "name": "LOOP Lata Negra",
-  "price": 240,
-  "category": "Lata",
+  "id": "2",
+  "name": "asdasd",
+  "price": "123",
   "description": "",
-  "image": "/images/NEGRA-lata.png"
+  "image": "favicon.png"
  },
  {
-  "id": 3,
-  "name": "LOOP Lata Roja",
-  "price": 240,
-  "category": "Lata",
-  "description": "",
-  "image": "/images/ROJA-lata.png"
+  "id": "3"
  },
  {
-  "id": 4,
+  "id": "4",
   "name": " LOOP Lata IPA",
-  "price": 240,
-  "category": "Lata",
-  "description": "",
-  "image": "/images/IPA-lata.png"
+  "price": "240",
+  "description": ""
  },
  {
-  "id": 5,
+  "id": "5",
   "name": " LOOP Botella IPA",
-  "price": 340,
-  "category": "Botella",
+  "price": "340",
   "description": "",
-  "image": "/images/IPA-botella.png"
+  "image": ""
+ },
+ {
+  "id": "1677211554442",
+  "name": "123",
+  "price": "321",
+  "description": "asd",
+  "image": ""
  }
 ]

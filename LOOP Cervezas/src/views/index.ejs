@@ -3,11 +3,37 @@
 <body>
     <%- include("partials/header") %>
     <main>
+      <!-- <h1 class="main-titulo">¡BIENVENIDOS A L<img src="/images/favicon.png" width="40px" style="filter: invert(1);vertical-align:middle;" alt="">P!</h1> -->
       <h1 class="main-titulo">¡BIENVENIDOS A LOOP!</h1>
 
       <div class="container-cervezas">
+
+        <% products.forEach(product => { %>
+          <span>
+            <img src="<%= product.image %>" width="100%" alt="lata" />
+            <div class="container-body-cervezas">
+              <h2 class="cervezaTitulo"><%= product.name %></h2>
+              <hr>
+              <div class="box-precioYEnvio">
+                <h3 class="cervezaPrecio">$<%= product.price %></h3>
+                <p class="cervezaEnvio">ENVIO GRATIS</p>
+              </div>
+              <hr>
+              <div class="cervezaVerMas">
+                <a href="">
+                  + AGREGAR
+                </a>
+                <a href="<%= product.id %>/productDetail">
+                  VER MÁS
+                  <i class="fas fa-angle-right"></i>
+                </a>
+                </div>
+            </div>
+        </span>
+        <% }) %>
+
         
-        <%- include("partials/productCerveza",
+        <!-- <%- include("partials/productCerveza",
           {
             imagen:'/images/RUBIA-lata.png',
             titulo: 'LOOP Lata Rubia',
@@ -53,7 +79,7 @@
             titulo: 'LOOP Botella IPA',
             precio: '$340',
           }
-        )%>
+        )%> -->
 
       </div>
     </main>

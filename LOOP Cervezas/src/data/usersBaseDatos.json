@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "firstName": "Roberto",
+        "lastName": "Sanchez",
+        "email": "rober@mail.com",
+        "password": "123",
+        "image": ""
+    },
+    {
+        "id": 1677623682109,
+        "firstName": "prueba",
+        "lastName": "aver",
+        "email": "alejobaert@hotmail.com",
+        "password": "$2a$10$cctJCvD06EmGMfzvC.hhBe69h6SyabUM0dTB.84DnUPwHrLPZ59vq",
+        "image": "/images/users/image-1677623682104.jpeg"
+    },
+    {
+        "id": 1677625536905,
+        "firstName": "PRUEBA",
+        "lastName": "123",
+        "email": "rober@mail2.com",
+        "password": "$2a$10$qJFBpTsFcKrjycCAl9DOouVMyPh4rvLDkii4hNEQ0xqmQoGEInjea",
+        "image": "/images/users/image-1677625536902.jpeg"
+    }
+]

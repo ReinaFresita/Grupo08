@@ -1,0 +1,43 @@
+<%- include("../partials/head", {title: 'LOOP - Registrarse'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+    <!-- <main> -->
+        <form action="/users/register" class="formulario" method="post" enctype="multipart/form-data">
+            <h1 style="text-align: center;margin-top: 20px;">REGISTRARSE<i class="fas fa-beer"></i></h1>
+
+            <input type="text" class="input-form" name="firstName" placeholder="Escribe tu nombre" value="<%= locals.oldData ? oldData.firstName : null %>">
+            <% if (locals.errors && errors.firstName) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.firstName.msg %></p>
+            <% } %>
+            <input type="text" class="input-form" name="lastName" placeholder="Escribe tu apellido" value="<%= locals.oldData ? oldData.lastName : null %>">
+            <% if (locals.errors && errors.lastName) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.lastName.msg %></p>
+            <% } %>
+            <input type="email" class="input-form" name="email" placeholder="Escribe tu email" value="<%= locals.oldData ? oldData.email : null %>">
+            <% if (locals.errors && errors.email) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.email.msg %></p>
+            <% } %>
+            <input type="password" class="input-form" name="password" placeholder="Escribe tu contraseña" value="<%= locals.oldData ? oldData.password : null %>">
+            <% if (locals.errors && errors.password) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.password.msg %></p>
+            <% } %>
+
+            <label for="">Suba una foto para el perfil:</label>
+            <input type="file" name="image" class="input-form" accept="image/png,image/jpg">
+            <% if (locals.errors && errors.image) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.image.msg %></p>
+            <% } %>
+            <!-- <div class="checkbox">
+                <input type="checkbox">
+                <p>Recuérdame</p>
+            </div> -->
+            <input type="submit" value="Registrarse" class="form-enviar">
+            <a href="/users/login">¿Ya tiene una cuenta? Inicie sesión!</a>
+        </form>
+    <!-- </main> -->
+
+    <%- include("../partials/footer") %>
+    
+</body>
+</html>

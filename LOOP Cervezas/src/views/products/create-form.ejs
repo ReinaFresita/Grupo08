@@ -1,4 +1,4 @@
-<%- include("../partials/head", {title: 'LOOP - Crear'}) %>
+<%- include("../partials/head", {title: 'LOOP - Crear Producto'}) %>
 
 <body>
     <%- include("../partials/header") %>
@@ -12,18 +12,18 @@
             </a>
         </div>
 
-        <form action="/products/" method="post" class="formulario" enctype="application/x-www-form-urlencoded">
+        <form action="/products/create" method="post" class="formulario" enctype="multipart/form-data">
             <label>NOMBRE:</label>
             <input type="text" name="name" placeholder="Nombre del producto" required>
             <br>
             <label>PRECIO:</label>
-            <input type="number"name="price" placeholder="Precio del producto" required>
+            <input type="number" name="price" placeholder="Precio del producto" required>
             <br>
             <label>DESCRIPCION:</label>
-            <input type="text"name="description" placeholder="Descripcion del producto" required>
+            <input type="text" name="description" placeholder="Descripcion del producto">
             <br>
             <label>IMAGEN:</label>
-            <input type="file"name="image" placeholder="Imagen del producto" required>
+            <input type="file" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg" required>
             <br>
             <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Crear</button>
         </form>

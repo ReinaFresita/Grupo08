@@ -1,0 +1,28 @@
+<%- include("../partials/head", {title: 'LOOP - Lista de Usuarios'}) %>
+
+<body>
+    <%- include("../partials/header") %>
+
+    <main>
+        <h1 class="main-titulo">LISTA DE USUARIOS</h1>
+
+        <div style="display: flex;flex-wrap: wrap;">
+            <% users.forEach(user => { %>
+                    <div class="product-box" style="width: 100%; margin:20px;text-align: center;width:275px; height:275px;">
+                        <div style="display: flex;flex-direction: column;align-items: center;justify-content:space-around;height: 100%;">
+                            <img src="<%= user.image %>" width="150px" height="150px" style="border-radius: 50%;object-fit: cover;" alt="">
+                            <h2><%= user.lastName %>, <%= user.firstName %></h2>
+                        </div>
+                    </div>
+            <% }) %>
+        </div>
+
+                
+    </main>
+
+    
+
+    <%- include("../partials/footer") %>
+
+</body>
+</html>
