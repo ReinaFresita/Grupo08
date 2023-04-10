@@ -174,6 +174,8 @@ main{
   padding: 30px;
 }
 
+/* CARRITO */
+
 .product-carrito {
   background: white;
   padding: 30px;
@@ -196,9 +198,24 @@ main{
 .product-carrito .body p{
   padding: 10px 0;
 }
-.img-carrito {
-  width: 200px;
+.icon-carrito{
+  position: relative;
 }
+.icon-carrito::before {
+  content:"";
+  position: absolute;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+  background-color: red;
+}
+
+/* .img-carrito {
+  width: 200px;
+} */
+
+/* VER MAS */
 .product-price {
   font-size: 40px;
   color: gray;

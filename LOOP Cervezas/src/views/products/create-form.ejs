@@ -14,16 +14,19 @@
 
         <form action="/products/create" method="post" class="formulario" enctype="multipart/form-data">
             <label>NOMBRE:</label>
-            <input type="text" name="name" placeholder="Nombre del producto" required>
+            <input type="text" name="name" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.name : null %>">
+            <% if (locals.errors && errors.name) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.name.msg %></p>
+            <% } %>
             <br>
             <label>PRECIO:</label>
-            <input type="number" name="price" placeholder="Precio del producto" required>
+            <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : null %>">
             <br>
             <label>DESCRIPCION:</label>
-            <input type="text" name="description" placeholder="Descripcion del producto">
+            <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : null %>">
             <br>
             <label>IMAGEN:</label>
-            <input type="file" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg" required>
+            <input type="file" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg">
             <br>
             <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Crear</button>
         </form>

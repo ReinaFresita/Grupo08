@@ -24,7 +24,7 @@
             <% } %>
 
             <label for="">Suba una foto para el perfil:</label>
-            <input type="file" name="image" class="input-form" accept="image/png,image/jpg">
+            <input type="file" name="image" class="input-form" accept="image/png, image/jpg, image/jpeg, image/gif">
             <% if (locals.errors && errors.image) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.image.msg %></p>
             <% } %>

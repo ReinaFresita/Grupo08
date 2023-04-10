@@ -20,7 +20,6 @@ const controller = {
             description:req.body.description,
             image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
         })
-        
         res.redirect("/products")
     },
 

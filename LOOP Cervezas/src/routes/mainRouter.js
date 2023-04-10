@@ -4,7 +4,7 @@ const mainController = require("../controllers/mainController")
 const router = Router()
 
 router.get("/", mainController.index)
-router.get('/productCart', mainController.productCart)
+// router.get('/productCart', mainController.productCart)
 router.get('/:id/productDetail', mainController.productDetail)
 router.get('/sobreNosotros', mainController.sobreNosotros)
 router.get('/merchandising', mainController.merchandising)
@@ -14,5 +14,8 @@ router.use("/products", productsRouter)
 
 const usersRouter = require("./users")
 router.use("/users", usersRouter)
+
+const cartRouter = require("./cartRouter")
+router.use(cartRouter)
 
 module.exports = router;

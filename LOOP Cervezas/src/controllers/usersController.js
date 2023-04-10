@@ -95,7 +95,7 @@ module.exports = {
           errors: {
             email:{
               msg:'Este email ya está registrado'
-            }
+            } 
           },
           oldData:req.body
         })
@@ -171,7 +171,7 @@ module.exports = {
       })
     }, */
 
-    carrito:(req, res) => {
+    /* carrito:(req, res) => {
       res.render("users/carrito");
-    },
+    }, */
   };

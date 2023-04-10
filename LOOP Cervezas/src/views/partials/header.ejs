@@ -15,8 +15,12 @@
         </div>
 
         <div class="login">
+          <!--  class="icon-carrito" -->
+          
+          <span>
+            <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+          </span>
           <% if (locals.isLogged) { %>
-            <span><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></span>
             <a href="/users/profile" >
               <span class="user">
                   <i class="fas fa-user-alt"></i>
@@ -25,7 +29,6 @@
             </a>
               <!-- <span><a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a></span> -->
             <% } else { %>
-              <span><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></span>
               <span><a href="/users/login"><i class="fas fa-sign-in-alt"></i></a></span>
           <% } %>
         </div>

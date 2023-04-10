@@ -9,9 +9,9 @@ module.exports = {
         })})
     },
 
-    productCart: (req, res)=>{
+    /* productCart: (req, res)=>{
         res.render('productCart')
-    },
+    }, */
 
     productDetail: async (req, res) => {
         res.render('productDetail', { product: await db.Product.findOne({
