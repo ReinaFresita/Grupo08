@@ -7,7 +7,7 @@ const authMiddleware = require('../middlewares/authMiddleware')
 
 const { body } = require('express-validator')
 
-const validations = [
+const validationsRegister = [
     body('firstName').notEmpty().withMessage('Debes escribir un nombre').isLength({min:2}).withMessage('Debe tener al menos dos caracteres'),
     body('lastName').notEmpty().withMessage('Debes escribir un apellido').isLength({min:2}).withMessage('Debe tener al menos dos caracteres'),
     body('email').notEmpty().withMessage('Debes escribir un email').bail()
@@ -20,11 +20,16 @@ const validations = [
     })
 ]
 
+const validationsLogin = [
+    body('email').notEmpty().withMessage('Debes escribir un email').bail().isEmail().withMessage('Debes escribir un email válido'),
+    body('password').notEmpty().withMessage('Debes escribir una contraseña').isLength({min:8}).withMessage('Debe tener al menos 8 caracteres'),
+]
+
 router.get("/", usersController.list);
 router.get("/login", guestMiddleware, usersController.showLogin);
-router.post("/login", usersController.loginUsers);
+router.post("/login", validationsLogin, usersController.loginUsers);
 router.get("/register", guestMiddleware, usersController.showRegister);
-router.post("/register", upload.single("image"), validations, usersController.create);
+router.post("/register", upload.single("image"), validationsRegister, usersController.create);
 /* router.get("/carrito", usersController.carrito); */
 router.get("/profile", authMiddleware, usersController.profile);
 router.get("/logout", authMiddleware, usersController.logout);

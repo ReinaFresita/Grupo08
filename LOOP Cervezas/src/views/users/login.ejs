@@ -5,11 +5,14 @@
     <!-- <main> -->
         <form action="/users/login" method="post" class="formulario">
             <h1 style="text-align: center;margin-top: 20px;">INICIAR SESIÓN<i class="fas fa-beer"></i></h1>
-            <input type="email" name="email" class="input-form" placeholder="Escribe tu email">
+            <input type="email" name="email" class="input-form" placeholder="Escribe tu email" value="<%= locals.oldData ? oldData.email : null %>">
             <% if (locals.errors && errors.email) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.email.msg %></p>
             <% } %>
-            <input type="password" name="password" class="input-form" placeholder="Escribe tu contraseña">
+            <input type="password" name="password" class="input-form" placeholder="Escribe tu contraseña" value="<%= locals.oldData ? oldData.password : null %>">
+            <% if (locals.errors && errors.password) { %>
+                <p style="color:rgb(235, 0, 0);"><%= errors.password.msg %></p>
+            <% } %>
             <!-- <div class="checkbox">
                 <input type="checkbox">
                 <p>Recuérdame</p>

@@ -106,6 +106,18 @@ module.exports = {
   },
 
   loginUsers: async (req, res) => {
+
+    const resultValidation = validationResult(req)
+
+    if(resultValidation.errors.length > 0){
+      return res.render('users/login',{
+        errors:resultValidation.mapped(),
+        oldData: req.body
+      })
+    }
+
+    if (!req.body) return res.status(400).json({ error: "No hay datos" })
+
     let userToLogin = await db.User.findOne({
       where: { email: req.body.email },
     });
@@ -117,13 +129,14 @@ module.exports = {
         req.session.userLogged = userToLogin
         return res.redirect('/')
       }
-      return res.render('users/login',{
-        errors:{
-          email:{
-            msg:'El email y/o contraseña son erróneas'
-          }
-        }
-      })
+        return res.render('users/login',{
+          errors:{
+            email:{
+              msg:'El email y/o contraseña son erróneas'
+            }
+          },
+          oldData:req.body
+        })
     }
 
     return res.render('users/login',{
@@ -131,7 +144,8 @@ module.exports = {
         email:{
           msg:'El email ingresado no está registrado'
         }
-      }
+      },
+      oldData:req.body
     })
   },
 

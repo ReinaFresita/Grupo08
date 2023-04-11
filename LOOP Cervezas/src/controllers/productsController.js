@@ -1,4 +1,5 @@
 const db = require("../../database/models")
+const { validationResult } = require('express-validator')
 
 // const products = require("../data/products");
 // const path = require('path')
@@ -14,6 +15,18 @@ const controller = {
     },
 
     create: (req, res) => {
+
+        const resultValidation = validationResult(req)
+
+        if(resultValidation.errors.length > 0){
+            return res.render('products/create-form',{
+            errors:resultValidation.mapped(),
+            oldData: req.body
+            })
+        }
+
+        if (!req.body) return res.status(400).json({ error: "No hay datos" })
+
         db.Product.create({
             name:req.body.name,
             price:req.body.price,
@@ -34,19 +47,41 @@ const controller = {
         const product = await db.Product.findOne(
             { where: { id: req.params.id }}
         )
+
         res.render("products/edit-form", { productToEdit:product });
     },
 
     update: async (req, res) => {
+
+        const product = await db.Product.findOne(
+            { where: { id: req.params.id }}
+        )
+
+        const resultValidation = validationResult(req)
+
+        if(resultValidation.errors.length > 0){
+            return res.render('products/edit-form',
+            { errors:resultValidation.mapped(), oldData: req.body, productToEdit:product}
+            )
+        }
+
+        if (!req.body) return res.status(400).json({ error: "No hay datos" })
+
+        if (req.file) {
+            image = '/images/products/' + req.file.filename;
+        } else {
+            image = req.body.currentImage;
+        }
+        
         await db.Product.update({
             name:req.body.name,
             price:req.body.price,
             description:req.body.description,
-            image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
+            // image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
         },
         { where: { id:req.params.id }});
 
-        res.redirect("/products");
+        // res.redirect("/products");
     },
 
     destroy: async (req, res) => {
