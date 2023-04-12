@@ -23,4 +23,4 @@ Filtro de edad. Buen diseño. Imagenes ilustratibas.
 
 
 ## Link de Trello 
-https://trello.com/b/t1jBvW01/loop-cerveceria-artesanal
+https://trello.com/invite/loop_cervecera_artesanal/ATTI49fc1de9bd303ee3c29652e458bd462d00F9018D
