@@ -6,22 +6,22 @@
     <main>
         <h1 class="main-titulo">LISTA DE PRODUCTOS</h1>
 
-        <div style="padding: 0 30px; display:flex;">
-            <a href="/products/create">
+        <div style="padding: 0 30px; display:flex;;">
+            <a href="/products/create" style="text-decoration: none">
                 <h3 style="color: white;border: 1px solid white;border-radius: 5px;width: 200px;text-align: center;">
                     + CREAR PRODUCTO
                 </h3>
             </a>
         </div>
 
-        <div style="display: flex;flex-wrap: wrap;">
+        <div style="display: flex;flex-wrap: wrap;justify-content: center;">
             <% products.forEach(product => { %>
-                <div class="product-box" style="margin:20px;">
+                <div class="product-box" style="margin:20px; text-align: center;">
                     <!-- <p><%= product.id %></p> -->
                     <h2><%= product.name %></h2>
-                    <img src="<%= product.image %>" width="200px" alt="">
-                    <p>$<%= product.price %></p>
-                    <p><%= product.description.toString().substring(0,40) %></p>
+                    <img src="<%= product.image %>" width="200px" class="img-rounded" alt="">
+                    <h2>$<%= product.price %></h2>
+                    <!-- <p><%= product.description.toString().substring(0,40) %></p> -->
 
                     <div class="list-container-products">
                         <a href="/products/<%= product.id %>">

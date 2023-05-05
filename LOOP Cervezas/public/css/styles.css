@@ -160,8 +160,8 @@ main{
 }
 
 .nosparrafo {
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin:10px 0;
+  font-size: 1.1em;
 }
 
 .imgcerveza {
@@ -208,6 +208,14 @@ main{
 .product-carrito .body p{
   padding: 10px 0;
 }
+
+.product-carrito .totalycompra{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
 .icon-carrito{
   position: relative;
 }
@@ -341,6 +349,9 @@ main{
 .list-container-products a{
   color: black;
   text-decoration: none;
+}
+.img-rounded{
+  border-radius: 5px;
 }
 
 footer{

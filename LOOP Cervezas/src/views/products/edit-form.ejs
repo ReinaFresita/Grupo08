@@ -13,39 +13,37 @@
         </div>
 
         <!-- enctype="multipart/form-data" -->
-        <form action="/products/<%= productToEdit.id %>?_method=PUT" method="post" class="formulario" enctype="application/x-www-form-urlencoded">
+        <form action="/products/<%= productToEdit.id %>?_method=PUT" method="post" class="formulario" enctype="multipart/form-data">
 
-            <input type="hidden" name="_method" value="PUT">
-            
-            <label>NOMBRE:</label>
-            <input type="text" name="name" placeholder="Nombre del producto" value="<%= productToEdit.name, locals.oldData ? oldData.name : null %>">
+            <label style="color:#565656">NOMBRE:</label>
+            <input type="text" class="input-form" name="name" placeholder="Nombre del producto" value="<%= productToEdit.name, locals.oldData ? oldData.name : null %>">
             <% if (locals.errors && errors.name) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.name.msg %></p>
             <% } %>
-            <br>
-            <label>PRECIO:</label>
-            <input type="number" name="price" placeholder="Precio del producto" value="<%= productToEdit.price, locals.oldData ? oldData.price : null %>">
+
+            <label style="color:#565656">PRECIO:</label>
+            <input type="number" class="input-form" name="price" placeholder="Precio del producto" value="<%= productToEdit.price, locals.oldData ? oldData.price : null %>">
             <% if (locals.errors && errors.price) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.price.msg %></p>
             <% } %>
-            <br>
-            <label>DESCRIPCION:</label>
-            <input type="text" name="description" placeholder="Descripcion del producto" value="<%= productToEdit.description, locals.oldData ? oldData.description : null %>">
+
+            <label style="color:#565656">DESCRIPCION:</label>
+            <input type="text" class="input-form" name="description" placeholder="Descripcion del producto" value="<%= productToEdit.description, locals.oldData ? oldData.description : null %>">
             <% if (locals.errors && errors.description) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.description.msg %></p>
             <% } %>
+
+            <label style="color:#565656">IMAGEN:</label>
             <br>
-            <label>IMAGEN:</label>
-            <br>
-            <input type="hidden" name="currentImage" value="<%= productToEdit.image %>" value="<%= locals.oldData ? oldData.image : null %>">
             <img src="<%= productToEdit.image %>" width="300px" alt="" >
             <% if (locals.errors && errors.image) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.image.msg %></p>
             <% } %>
             <br>
-            <label>CAMBIAR IMAGEN:</label>
-            <input type="file" name="currentImage" placeholder="Imagen del producto" accept="image/png,image/jpeg" >
-            <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Editar</button>
+            <br>
+            <label style="color:#565656">CAMBIAR IMAGEN:</label>
+            <input type="file" class="input-form" name="currentImage" >
+            <button type="submit" style="font-size:1.3em;" class="form-enviar">Editar</button>
         </form>
     </main>
 

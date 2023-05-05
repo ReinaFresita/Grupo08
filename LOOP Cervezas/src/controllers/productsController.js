@@ -52,7 +52,6 @@ const controller = {
     },
 
     update: async (req, res) => {
-
         const product = await db.Product.findOne(
             { where: { id: req.params.id }}
         )
@@ -61,7 +60,7 @@ const controller = {
 
         if(resultValidation.errors.length > 0){
             return res.render('products/edit-form',
-            { errors:resultValidation.mapped(), oldData: req.body, productToEdit:product}
+            { errors:resultValidation.mapped(), oldData: req.body, productToEdit:product }
             )
         }
 
@@ -77,11 +76,11 @@ const controller = {
             name:req.body.name,
             price:req.body.price,
             description:req.body.description,
-            // image: req.file ? "/images/products/" + req.file.filename : "default-image.png"
+            image: req.file && "/images/products/" + req.file.filename
         },
         { where: { id:req.params.id }});
 
-        // res.redirect("/products");
+        res.redirect("/products");
     },
 
     destroy: async (req, res) => {

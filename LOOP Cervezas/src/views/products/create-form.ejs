@@ -14,30 +14,26 @@
 
         <form action="/products/create" method="post" class="formulario" enctype="multipart/form-data">
             <label>NOMBRE:</label>
-            <input type="text" name="name" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.name : null %>">
+            <input type="text" class="input-form" name="name" placeholder="Nombre del producto" value="<%= locals.oldData ? oldData.name : null %>">
             <% if (locals.errors && errors.name) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.name.msg %></p>
             <% } %>
-            <br>
             <label>PRECIO:</label>
-            <input type="number" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : null %>">
+            <input type="number" class="input-form" name="price" placeholder="Precio del producto" value="<%= locals.oldData ? oldData.price : null %>">
             <% if (locals.errors && errors.price) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.price.msg %></p>
             <% } %>
-            <br>
             <label>DESCRIPCION:</label>
-            <input type="text" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : null %>">
+            <input type="text" class="input-form" name="description" placeholder="Descripcion del producto" value="<%= locals.oldData ? oldData.description : null %>">
             <% if (locals.errors && errors.description) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.description.msg %></p>
             <% } %>
-            <br>
             <label>IMAGEN:</label>
-            <input type="file" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg">
+            <input type="file" class="input-form" name="image" placeholder="Imagen del producto" accept="image/png,image/jpeg">
             <% if (locals.errors && errors.image) { %>
                 <p style="color:rgb(235, 0, 0);"><%= errors.image.msg %></p>
             <% } %>
-            <br>
-            <button type="submit" style="width: 100%;font-size:1.3em;" class="productButton">Crear</button>
+            <button type="submit" style="font-size:1.3em;" class="form-enviar">Crear</button>
         </form>
     </main>
 
